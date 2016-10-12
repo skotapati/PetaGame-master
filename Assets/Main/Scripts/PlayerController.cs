@@ -28,8 +28,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		//checkBlock ();
 
-		testBlock();
+		testBlock(); //dont need this now
 		playerBody.position= new Vector3(playerBody.position.x, playerHeight, playerBody.position.z);
+		print (GameController.score);
 	}
 	void checkBlock(){
 		RaycastHit hit;
@@ -56,12 +57,21 @@ public class PlayerController : MonoBehaviour {
 	void testBlock(){
 		Block block = tileRepo.blockAtPosition (gameController.playerPosition.position);
 		if (block.walkable == false) {
+			print ("fell off");
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		}
 	}
-	void OnTriggerEnter(Collider col){
+
+	//COLLISION - tried OnTriggerStay as well and OnCollisionStay, but score is incremented twice sometimes
+	void OnTriggerStay(Collider col){
 		if (col.tag == "Enemy") {
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		}
+		if (col.tag == "Animal") {
+			print ("animal saved");
+			Destroy (col.transform.gameObject);
+
+			GameController.score++; //maybe cant be static, so does not reset with this scene reload - must read up on proper score system
 		}
 	}
 }

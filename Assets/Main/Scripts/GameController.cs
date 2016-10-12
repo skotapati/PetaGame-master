@@ -7,13 +7,23 @@ public class GameController : MonoBehaviour {
 	public float previousRotation = 0; // so they can turn from the previous rot
 	public Position gamePosition;
 	public GameObject[] sectors;
+
 	public bool losing;
+	public static int score;
+
+	public static int x
+	{
+		get { return x; }
+		set {x = value;}
+	}
 
 	InputManager input;
 
 	// Use this for initialization
 	void Start () {
 		losing = false;
+		score = 0;
+
 		input = gameObject.GetComponent<InputManager> ();
 		int i = 20;
 		while (i >= 0) {
@@ -34,44 +44,43 @@ public class GameController : MonoBehaviour {
 			swipeDirection = input.swipe ();
 		}
 		if (swipeDirection == InputManager.swipes.down) {
-//			previousPosition.position = playerPosition.position;
-//			playerPosition.position = playerPosition.Behind ();
-			playerPosition.rotation = 180;
-			print ("swiped down");
-		} else if (swipeDirection == InputManager.swipes.up) {
-//			previousPosition.position = playerPosition.position;
-//			playerPosition.position = playerPosition.Forward ();
-			playerPosition.rotation = 0;
-			print("swiped up- jump");
-		} else if (swipeDirection == InputManager.swipes.right) {
-			//previousPosition.position = playerPosition.position;
-			//playerPosition.position = playerPosition.Right ();
-			playerPosition.rotation = 90;
-//			playerPosition.rotation = previousRotation + 90;
-//			previousRotation = playerPosition.rotation;
-		} else if (swipeDirection == InputManager.swipes.left) {
-			//previousPosition.position = playerPosition.position;
-			//playerPosition.position = playerPosition.Left ();
-			playerPosition.rotation = 270;
-//			playerPosition.rotation = previousRotation - 90;
-//			previousRotation = playerPosition.rotation;
-		}
-
-		//TAP - MOVE FORWARD IN DIRECTION TURNED
-
-		if (Input.GetButton("Fire1")) {
-				print ("Tapped!");
-
-				//Problem: needs to only happen ONCE
 				previousPosition.position = playerPosition.position;
-				playerPosition.position = playerPosition.Forward ();
+				playerPosition.position = playerPosition.Behind ();
+			playerPosition.rotation = 180;
+			//print ("swiped down");
+		} else if (swipeDirection == InputManager.swipes.up) {
+			previousPosition.position = playerPosition.position;
+			playerPosition.position = playerPosition.Forward ();
+			playerPosition.rotation = 0;
+			//print("swiped up- jump");
+		} else if (swipeDirection == InputManager.swipes.right) {
+			previousPosition.position = playerPosition.position;
+			playerPosition.position = playerPosition.Right ();
+			playerPosition.rotation = 90;
+
+		} else if (swipeDirection == InputManager.swipes.left) {
+			previousPosition.position = playerPosition.position;
+			playerPosition.position = playerPosition.Left ();
+			playerPosition.rotation = 270;
+
 		}
+
+		//TAP - MOVE FORWARD IN DIRECTION TURNED (not right now)
+
+//		if (Input.GetButton("Fire1")) {
+//				print ("Tapped!");
+//
+//				//Problem: needs to only happen ONCE
+//				previousPosition.position = playerPosition.position;
+//				playerPosition.position = playerPosition.Forward ();
+//		}
 	}
 
 	void spawnSector(Vector3 relativePosition,GameObject sector){
 		GameObject newSector = GameObject.Instantiate (sector, relativePosition, transform.rotation) as GameObject;
 		gamePosition.position += newSector.GetComponent<Sector> ().length;
 	}
+		
 }
 
 [System.Serializable]
