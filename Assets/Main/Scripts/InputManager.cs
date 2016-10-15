@@ -40,7 +40,6 @@ public class InputManager : MonoBehaviour {
 					return swipes.left;
 				}
 				animator.StartPlayback ();
-				return swipes.up;
 			}
 			animator.StartPlayback ();
 			return swipes.none;

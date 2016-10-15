@@ -29,8 +29,8 @@ public class PlayerController : MonoBehaviour {
 		//checkBlock ();
 
 		testBlock(); //dont need this now
-		playerBody.position= new Vector3(playerBody.position.x, playerHeight, playerBody.position.z);
-		print (GameController.score);
+
+		print ("score="+GameController.score);
 	}
 	void checkBlock(){
 		RaycastHit hit;

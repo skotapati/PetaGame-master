@@ -32,11 +32,11 @@ public class EnemyController : MonoBehaviour {
 		transform.position = Vector3.MoveTowards (transform.position, waypoints [currentPosition].position.position, speed);
 	}
 
-	void OnMouseDown()
-	{
-		print ("touched enemy!!");
-		Destroy (this);
-	}
+//	void OnMouseDown()
+//	{
+//		print ("touched enemy!!");
+//		Destroy (this);
+//	}
 }
 
 [System.Serializable]

@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour {
 		score = 0;
 
 		input = gameObject.GetComponent<InputManager> ();
-		int i = 20;
+		int i = 200; //change num tiles here to infinite
 		while (i >= 0) {
 			int j = Random.Range (0, sectors.Length);
 			spawnSector (gamePosition.position, sectors [j]);
@@ -37,22 +37,20 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//SWIPES - ROTATION
+		//User controls - take #1
 
 		InputManager.swipes swipeDirection = InputManager.swipes.none;
-		if (input.swipe () != null) {
-			swipeDirection = input.swipe ();
-		}
+		swipeDirection = input.swipe ();
 		if (swipeDirection == InputManager.swipes.down) {
-				previousPosition.position = playerPosition.position;
-				playerPosition.position = playerPosition.Behind ();
+			previousPosition.position = playerPosition.position;
+			playerPosition.position = playerPosition.Behind ();
 			playerPosition.rotation = 180;
-			//print ("swiped down");
+
 		} else if (swipeDirection == InputManager.swipes.up) {
 			previousPosition.position = playerPosition.position;
 			playerPosition.position = playerPosition.Forward ();
 			playerPosition.rotation = 0;
-			//print("swiped up- jump");
+
 		} else if (swipeDirection == InputManager.swipes.right) {
 			previousPosition.position = playerPosition.position;
 			playerPosition.position = playerPosition.Right ();
@@ -64,16 +62,47 @@ public class GameController : MonoBehaviour {
 			playerPosition.rotation = 270;
 
 		}
+		//User controls - take #2
 
-		//TAP - MOVE FORWARD IN DIRECTION TURNED (not right now)
-
-//		if (Input.GetButton("Fire1")) {
-//				print ("Tapped!");
+//		InputManager.swipes swipeDirection = InputManager.swipes.none;
+//		swipeDirection = input.swipe ();
+//		if (swipeDirection == InputManager.swipes.down) {
+//				previousPosition.position = playerPosition.position;
 //
-//				//Problem: needs to only happen ONCE
+//			playerPosition.rotation = 180;
+//
+//		} else if (swipeDirection == InputManager.swipes.up) {
+//			previousPosition.position = playerPosition.position;
+//
+//			playerPosition.rotation = 0;
+//
+//		} else if (swipeDirection == InputManager.swipes.right) {
+//			previousPosition.position = playerPosition.position;
+//
+//			playerPosition.rotation = 90;
+//
+//		} else if (swipeDirection == InputManager.swipes.left) {
+//			previousPosition.position = playerPosition.position;
+//
+//			playerPosition.rotation = 270;
+//
+//		}
+//		if (Input.touches [0].tapCount == 1) {
+//			if (playerPosition.rotation == 0) {
 //				previousPosition.position = playerPosition.position;
 //				playerPosition.position = playerPosition.Forward ();
+//			} else if (playerPosition.rotation == 90) {
+//				previousPosition.position = playerPosition.position;
+//				playerPosition.position = playerPosition.Right ();
+//			} else if (playerPosition.rotation == 180) {
+//				previousPosition.position = playerPosition.position;
+//				playerPosition.position = playerPosition.Behind ();
+//			} else if (playerPosition.rotation == 270) {
+//				previousPosition.position = playerPosition.position;
+//				playerPosition.position = playerPosition.Left ();
+//			}
 //		}
+			
 	}
 
 	void spawnSector(Vector3 relativePosition,GameObject sector){

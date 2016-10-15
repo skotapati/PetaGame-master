@@ -16,14 +16,17 @@ public class touchableManager : MonoBehaviour
 	// Update is called once per frame
 	protected virtual void Update ()
 	{
-		if (Input.GetMouseButtonDown (0)) {
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			if (Physics.Raycast (ray, out hit, 100.0f)) {
-				touchedObject = hit.transform.gameObject; 
-				touchedObject.GetComponent<touchableGameObject>().Touched();
-			}
-			else {
-				print("GetMouseButtonDown on nothing");
+		if (Input.touchCount > 1) {
+			
+			if (Input.touches [0].phase == TouchPhase.Stationary) {
+				Ray ray = Camera.main.ScreenPointToRay (Input.touches [0].position);
+				if (Physics.Raycast (ray, out hit, 100.0f)) {
+					touchedObject = hit.transform.gameObject; 
+					touchedObject.GetComponent<touchableGameObject> ().Touched ();
+					print (touchedObject.name);
+				} else {
+					print ("GetMouseButtonDown on nothing");
+				}
 			}
 		}
 	}
