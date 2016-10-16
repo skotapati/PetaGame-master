@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class touchableGameObject : MonoBehaviour
 {
@@ -7,7 +8,6 @@ public class touchableGameObject : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-
 	}
 		
 
@@ -18,5 +18,6 @@ public class touchableGameObject : MonoBehaviour
 	public void Touched()
 	{
 		print ("touched!! WORKING");
+		Destroy (this.gameObject);
 	}
 }

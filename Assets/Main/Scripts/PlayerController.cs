@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour {
 		gameController = gameObject.GetComponent<GameController> ();
 		animator = gameObject.GetComponent<Animator>();
 		tileRepo = GameObject.Find ("GameController").GetComponent<PositionRepo> ();
+
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
 	}
 	
 	// Update is called once per frame
