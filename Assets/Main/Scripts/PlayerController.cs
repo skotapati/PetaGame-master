@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour {
 
 		testBlock(); //dont need this now
 
-		print ("score="+GameController.score);
 	}
 	void checkBlock(){
 		RaycastHit hit;
@@ -64,14 +63,16 @@ public class PlayerController : MonoBehaviour {
 
 	//COLLISION - tried OnTriggerStay as well and OnCollisionStay, but score is incremented twice sometimes
 	void OnTriggerStay(Collider col){
-		if (col.tag == "Enemy") {
+		if (col.gameObject.tag == "Enemy") {
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+			print ("game over by enemy");
 		}
-		if (col.tag == "Animal") {
+		if (col.gameObject.tag == "Animal") {
 			print ("animal saved");
 			Destroy (col.transform.gameObject);
 
 			GameController.score++; //maybe cant be static, so does not reset with this scene reload - must read up on proper score system
+			print ("score="+GameController.score);
 		}
 	}
 }

@@ -55,3 +55,22 @@
 /Users/apple/Desktop/PetaGame-master3/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/apple/Desktop/PetaGame-master3/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/apple/Desktop/PetaGame-master3/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/obj/Debug/Assembly-CSharp.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/UnityEngine.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/UnityEditor.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Mono.Cecil.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Unity.DataContract.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/apple/Desktop/Saviors 2.0 - versions/PetaGame3 copy/Temp/bin/Debug/Assembly-CSharp.dll

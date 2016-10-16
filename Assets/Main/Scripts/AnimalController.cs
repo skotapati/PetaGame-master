@@ -18,7 +18,12 @@ public class AnimalController : MonoBehaviour {
 	
 	}
 
-
+//	void OnTriggerEnter(Collider col)
+//	{
+//		if (col.gameObject.tag == "Player") {
+//			print ("PLAYER!");
+//		}
+//	}
 	
 	// Update is called once per frame
 	void Update () {
