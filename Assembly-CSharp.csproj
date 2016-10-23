@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{1E3C8540-A9D6-02C1-2DC0-6977E7C4B630}</ProjectGuid>
+    <ProjectGuid>{CB67F721-7308-42BA-ACB5-F31667A05F0E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -47,16 +47,18 @@
   <ItemGroup>
      <Compile Include="Assets\Main\Scripts\AlternatingSpikes.cs" />
      <Compile Include="Assets\Main\Scripts\AnimalController.cs" />
+     <Compile Include="Assets\Main\Scripts\BallBehavior.cs" />
      <Compile Include="Assets\Main\Scripts\Block.cs" />
      <Compile Include="Assets\Main\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Main\Scripts\GameController.cs" />
+     <Compile Include="Assets\Main\Scripts\HomeUIManager.cs" />
      <Compile Include="Assets\Main\Scripts\InputManager.cs" />
      <Compile Include="Assets\Main\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Main\Scripts\PositionRepo.cs" />
      <Compile Include="Assets\Main\Scripts\Sector.cs" />
+     <Compile Include="Assets\Main\Scripts\UIManager.cs" />
      <Compile Include="Assets\Main\Scripts\touchableGameObject.cs" />
      <Compile Include="Assets\Main\Scripts\touchableManager.cs" />
-     <Compile Include="Assets\UIManager.cs" />
      <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\UI - BUILDER\Source Files\Fonts\OpenSans-Familiy\OpenSansLic.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
@@ -69,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{8FE0F875-17D6-8525-FC11-2BA81A119C39}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{F6331BCB-557A-2861-9696-82C18785870A}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
 	public float playerHeight;
 	PositionRepo tileRepo;
 	Animator animator;
+
+	public int ammo = 3; //change later
 	// Use this for initialization
 	void Start () {
 		gameController = gameObject.GetComponent<GameController> ();
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour {
 		//checkBlock ();
 
 		testBlock(); //dont need this now
+
 
 	}
 	void checkBlock(){
@@ -57,9 +60,11 @@ public class PlayerController : MonoBehaviour {
 
 	void testBlock(){
 		Block block = tileRepo.blockAtPosition (gameController.playerPosition.position);
-		if (block.walkable == false) {
+		//print (block.name);
+		//print (block.walkable);
+		if (block.tag != "Block") { 
 			print ("fell off");
-			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+			//SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		}
 	}
 
