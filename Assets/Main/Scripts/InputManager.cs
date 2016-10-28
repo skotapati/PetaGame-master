@@ -34,6 +34,12 @@ public class InputManager : MonoBehaviour {
 						objectDetected = true;
 						return swipes.none;
 					}
+					if (hit.collider.gameObject.tag == "Cage") {
+						detectedObject = hit.collider.gameObject;
+						detectedObject.GetComponent<AnimalCageController> ().onTap ();
+						objectDetected = true;
+						return swipes.none;
+					}
 				}
 			}
 			if(t.phase == TouchPhase.Ended){
@@ -56,7 +62,7 @@ public class InputManager : MonoBehaviour {
 					animator.StartPlayback ();
 					return swipes.left;
 				}
-				print ("tap");
+				//print ("tap");
 				return swipes.tap;
 				animator.StartPlayback ();
 			}
