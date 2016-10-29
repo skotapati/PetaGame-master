@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour {
 		gameController = gameObject.GetComponent<GameController> ();
 		animator = gameObject.GetComponent<Animator>();
 		tileRepo = GameObject.Find ("GameController").GetComponent<PositionRepo> ();
-
+		Physics.gravity = new Vector3(0, -50.0F, 0);
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
 	}
 	
@@ -60,11 +60,11 @@ public class PlayerController : MonoBehaviour {
 
 	void testBlock(){
 		Block block = tileRepo.blockAtPosition (gameController.playerPosition.position);
-		//print (block.name);
-		//print (block.walkable);
-		if (block.tag != "Block") { 
-			//print ("fell off");
-			//SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+//		print (block.name);
+//		print (block.walkable);
+		if (block.walkable == false) { 
+
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		}
 	}
 

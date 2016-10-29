@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour {
 	public bool hit = false;
 	public BallBehavior paintballPrefab1;
 	private PlayerController player;
+	public GameObject playerBody;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class EnemyController : MonoBehaviour {
 		timeSinceLastMovement = 0;
 
 		player = FindObjectOfType(typeof(PlayerController)) as PlayerController;
+		playerBody = GameObject.FindGameObjectsWithTag("PlayerBodyMatrix")[0];
 		//player = GameObject.FindGameObjectsWithTag("PlayerBodyMatrix")[0]; //get player body
 	}
 	
@@ -42,11 +44,17 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	public void onTap(){
-		print ("Curses, foiled again!");
-		hit = true; 
+
+
+		print ("Curses, foiled again!"); 
 		//Destroy (this.gameObject);
-		if (player.ammo > 0) {
-			
+		if (player.ammo > 0 && hit == false) { //rotate player towards
+
+			if (player.transform.position.z > this.transform.position.z) {
+				//playerBody.transform.rotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
+				//actually need to alter playerPosition
+			}
+
 			print ("spawn paintball!");
 			Vector3 playerPos = new Vector3 (player.transform.position.x -1.8f, player.transform.position.y+3.7f, player.transform.position.z+2.5f);
 			BallBehavior newBall = Instantiate (paintballPrefab1, playerPos, Quaternion.identity) as BallBehavior;
@@ -55,6 +63,7 @@ public class EnemyController : MonoBehaviour {
 			newBall.positionToGo = ballPos;
 			//newBall.transform.position = Vector3.MoveTowards(newBall.transform.position, this.transform.position, speed*Time.deltaTime);
 		}
+		hit = true;
 	}
 
 	void OnTriggerStay(Collider col){

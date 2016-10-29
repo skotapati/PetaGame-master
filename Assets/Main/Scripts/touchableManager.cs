@@ -30,7 +30,7 @@ public class touchableManager : MonoBehaviour
 
 					print (touchedObject.name);
 				} else {
-					print ("GetMouseButtonDown on nothing");
+					//print ("GetMouseButtonDown on nothing");
 				}
 			}
 		}

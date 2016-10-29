@@ -6,7 +6,9 @@ public class GameController : MonoBehaviour {
 	public Position previousPosition; //If the player makes an invalid move, the character will snap back to previous position
 	public float previousRotation = 0; // so they can turn from the previous rot
 	public Position gamePosition;
+
 	public GameObject[] sectors;
+	public GameObject[] beginSectors;
 
 	public bool losing;
 	public static int score;
@@ -27,8 +29,15 @@ public class GameController : MonoBehaviour {
 		input = gameObject.GetComponent<InputManager> ();
 		int i = 200; //change num tiles here to infinite
 		while (i >= 0) {
-			int j = Random.Range (0, sectors.Length);
-			spawnSector (gamePosition.position, sectors [j]);
+
+			if (i >= 199) {
+
+				int j = Random.Range (0, beginSectors.Length);
+				spawnSector (gamePosition.position, beginSectors [j]);
+			} else {
+				int j = Random.Range (0, sectors.Length);
+				spawnSector (gamePosition.position, sectors [j]);
+			}
 			i--;
 		}
 
