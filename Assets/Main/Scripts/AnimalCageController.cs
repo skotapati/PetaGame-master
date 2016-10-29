@@ -6,24 +6,35 @@ public class AnimalCageController : MonoBehaviour {
 	public enum AnimalType{Pig, Cow, Chicken};
 	public AnimalType animalInside;
 
-	public float maxSize = 2.0f;
-	public float minSize = 0.2f;
-	public float speed = 1.0f;
 
 	// Use this for initialization
 	void Start () {
+		//touchAnim ();
 	
+	}
+
+	void touchAnim( )
+	{
+		//StartCoroutine(waitForGrow());
+		gameObject.GetComponent<Animation>().Play ();
+		waitForGrow ();
 	}
 
 	public void onTap(){
 		print ("Remove the cage!"+ animalInside);
+		touchAnim ();
+		//Destroy (this.gameObject);
+	}
+
+	IEnumerator waitForGrow() {
+		
+		yield return new WaitForSeconds (25);
 		Destroy (this.gameObject);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		double range = maxSize - minSize;
-		//transform.localScale.y = (Mathf.Sin(Time.time * speed) + 1.0) / 2.0 * range + minSize;
+
 	
 	}
 }

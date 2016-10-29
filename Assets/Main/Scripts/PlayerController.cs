@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
 		//print (block.name);
 		//print (block.walkable);
 		if (block.tag != "Block") { 
-			print ("fell off");
+			//print ("fell off");
 			//SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		}
 	}
