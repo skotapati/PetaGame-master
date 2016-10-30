@@ -5,31 +5,33 @@ public class AnimalCageController : MonoBehaviour {
 
 	public enum AnimalType{Pig, Cow, Chicken};
 	public AnimalType animalInside;
-	private AnimalController animalToSpawn;
-
-	public float thrust;
-	public Rigidbody rb;
+	private GameObject animalToSpawn;
+	public Vector3 cagePos;
 
 	//obj to be spawned
-	public AnimalController pigObj;
-	public AnimalController cowObj;
-	public AnimalController chickenObj;
+	public GameObject pigObj;
+	public GameObject cowObj;
+	public GameObject chickenObj;
 
 
 	// Use this for initialization
 	void Start () {
-		switch (animalInside) {
+		switch (animalInside) { //modify vectors based on animal spawned
 		case AnimalType.Pig:
 			animalToSpawn = pigObj;
+			cagePos = new Vector3 (gameObject.transform.position.x-0.5f, gameObject.transform.position.y-0.25f, gameObject.transform.position.z);
 			break;
 		case AnimalType.Cow:
 			animalToSpawn = cowObj;
+			cagePos = new Vector3 (gameObject.transform.position.x-0.5f, gameObject.transform.position.y-0.25f, gameObject.transform.position.z);
 			break;
 		case AnimalType.Chicken:
 			animalToSpawn = chickenObj;
+			cagePos = new Vector3 (gameObject.transform.position.x-2.0f, gameObject.transform.position.y-0.26f, gameObject.transform.position.z+1.0f); //this is right
 			break;
 		default:
 			animalToSpawn = pigObj;
+			cagePos = new Vector3 (gameObject.transform.position.x-0.5f, gameObject.transform.position.y-0.25f, gameObject.transform.position.z-2.9f);
 			break;
 		}
 	
@@ -45,8 +47,8 @@ public class AnimalCageController : MonoBehaviour {
 	{
 
 		Destroy (this.gameObject);
-		Vector3 cagePos = new Vector3 (gameObject.transform.position.x-1.8f, gameObject.transform.position.y+0.4f, gameObject.transform.position.z-0.3f);
-		AnimalController animal = Instantiate (animalToSpawn, cagePos, transform.rotation) as AnimalController;
+		//Vector3 cagePos = new Vector3 (gameObject.transform.position.x-0.5f, gameObject.transform.position.y-0.25f, gameObject.transform.position.z-2.9f);
+		AnimalController animal = Instantiate (animalToSpawn, cagePos, gameObject.transform.localRotation) as AnimalController;
 
 //		rb = animal.GetComponent<Rigidbody>();
 //		rb.AddForce(2,4, 0, ForceMode.Impulse);
