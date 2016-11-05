@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{D3B1188F-3F52-09E7-CBB2-3F2F80CCD244}") = "PetaGame13 copy", "Assembly-CSharp-firstpass.csproj", "{2110F269-2443-1303-DFFF-CF32F510B14E}"
+EndProject
+Project("{D3B1188F-3F52-09E7-CBB2-3F2F80CCD244}") = "PetaGame13 copy", "Assembly-CSharp.csproj", "{FA8A296D-D5B7-469F-98E7-D91D0CFFBA85}"
+EndProject
+Project("{D3B1188F-3F52-09E7-CBB2-3F2F80CCD244}") = "PetaGame13 copy", "Assembly-CSharp-Editor.csproj", "{C622E64B-84D8-DE5E-C1B1-E7AD156373BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2110F269-2443-1303-DFFF-CF32F510B14E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2110F269-2443-1303-DFFF-CF32F510B14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2110F269-2443-1303-DFFF-CF32F510B14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2110F269-2443-1303-DFFF-CF32F510B14E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA8A296D-D5B7-469F-98E7-D91D0CFFBA85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA8A296D-D5B7-469F-98E7-D91D0CFFBA85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA8A296D-D5B7-469F-98E7-D91D0CFFBA85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA8A296D-D5B7-469F-98E7-D91D0CFFBA85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C622E64B-84D8-DE5E-C1B1-E7AD156373BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C622E64B-84D8-DE5E-C1B1-E7AD156373BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C622E64B-84D8-DE5E-C1B1-E7AD156373BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C622E64B-84D8-DE5E-C1B1-E7AD156373BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

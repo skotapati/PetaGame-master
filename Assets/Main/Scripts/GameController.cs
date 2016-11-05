@@ -7,11 +7,16 @@ public class GameController : MonoBehaviour {
 	public float previousRotation = 0; // so they can turn from the previous rot
 	public Position gamePosition;
 
-	public GameObject[] sectors;
-	public GameObject[] beginSectors;
+	public GameObject[] sectorsZone1;
+	public GameObject[] beginSectorsZone1;
 
 	public bool losing;
+
+	//NOTE: these statics have to be reset explicitly because they dont die with scene
 	public static int score;
+	public static int difficulty = 10; //just a starting number
+
+	public int numSectorsToSpawn = 3; //just far enough that they cant see
 
 	public static int x
 	{
@@ -27,18 +32,86 @@ public class GameController : MonoBehaviour {
 		score = 0;
 
 		input = gameObject.GetComponent<InputManager> ();
-		int i = 200; //change num tiles here to infinite
+
+		//initial spawn
+		int i = 10; //get position of last sectors, when its exceeded by player then delete and spawn again
+		//print(numSectorsToSpawn+"duh2");
+
 		while (i >= 0) {
 
-			if (i >= 199) {
+			if (i >= 9) {
 
-				int j = Random.Range (0, beginSectors.Length);
-				spawnSector (gamePosition.position, beginSectors [j]);
+				int j = Random.Range (0, beginSectorsZone1.Length);
+				while (beginSectorsZone1 [j].GetComponent<Sector> ().weight >= difficulty) { //if greater than difficulty cant be spawned
+					j = Random.Range (0, beginSectorsZone1.Length);
+				}
+				spawnSector (gamePosition.position, beginSectorsZone1 [j]);
 			} else {
-				int j = Random.Range (0, sectors.Length);
-				spawnSector (gamePosition.position, sectors [j]);
+				int j = Random.Range (0, sectorsZone1.Length);
+				while (sectorsZone1 [j].GetComponent<Sector> ().weight >= difficulty) { //if greater than difficulty cant be spawned
+					j = Random.Range (0, sectorsZone1.Length);
+				}
+				spawnSector (gamePosition.position, sectorsZone1 [j]);
 			}
 			i--;
+		}
+
+	}
+
+	public static void increaseDifficulty(int increase)
+	{
+		difficulty += increase;
+		print ("difficulty="+GameController.difficulty);
+	}
+	public static void modifyScore(int num)
+	{
+		score += num;
+	}
+
+	void spawnSectorGroup()
+	{
+		int i = numSectorsToSpawn; //get position of last sectors, when its exceeded by player then delete and spawn again
+		while (i >= 0) {
+			int j = Random.Range (0, sectorsZone1.Length);
+			while (sectorsZone1 [j].GetComponent<Sector> ().weight >= difficulty) { //if greater than difficulty cant be spawned
+				j = Random.Range (0, sectorsZone1.Length);
+			}
+			spawnSector (gamePosition.position, sectorsZone1 [j]);
+			i--;
+		}
+	}
+	public static void gameOverClearVars()
+	{
+		score = 0;
+		difficulty = 10;
+	}
+
+	void checkAndUpdateSectors() 
+	{
+
+		//could increase difficulty here too
+		if (gamePosition.position.z - playerPosition.position.z <= 20) { //safe value ahead
+			print ("theyre almost there, spawn new group");
+			print (gamePosition.position.z - playerPosition.position.z);
+			spawnSectorGroup ();
+
+		}
+
+		//destroy past ones
+		GameObject[] objects = FindObjectsOfType(typeof(GameObject)) as GameObject[];
+		//GameObject[] objects = GameObject.FindGameObjectsWithTag("Block");
+		foreach (GameObject o in objects) {
+
+			if (o.gameObject.tag == "Block" || o.gameObject.tag == "Cage" || o.gameObject.tag == "Animal" || o.gameObject.tag == "Enemy") {
+				
+				if (playerPosition.position.z - o.transform.position.z >= 100) { //safe aways back
+
+					print ("destroying past object");
+					print (o.transform.position);
+					Destroy (o.gameObject);
+				}
+			}
+
 		}
 
 	}
@@ -46,6 +119,7 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		print ("START DIFFICULTY:"+GameController.difficulty);
 
 		//Take #3
 		InputManager.swipes swipeDirection = InputManager.swipes.none;
@@ -67,11 +141,13 @@ public class GameController : MonoBehaviour {
 
 		} else if (swipeDirection == InputManager.swipes.left) {
 			previousPosition.position = playerPosition.position;
-			print ("left");
+
 			//playerPosition.position = playerPosition.Left ();
 			playerPosition.rotation = 270;
 		}
 		if (swipeDirection == InputManager.swipes.tap) {
+			checkAndUpdateSectors ();
+
 			if (playerPosition.rotation == 0) {
 				previousPosition.position = playerPosition.position;
 				playerPosition.position = playerPosition.Forward ();

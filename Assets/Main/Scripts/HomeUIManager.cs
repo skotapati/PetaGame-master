@@ -12,6 +12,7 @@ public class HomeUIManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		levelChooserDisplay.enabled = false;
+		print ("score"+PlayerPrefs.GetInt ("bestScore")); 
 	}
 	
 	// Update is called once per frame
@@ -23,5 +24,6 @@ public class HomeUIManager : MonoBehaviour {
 	{
 		print ("Zone1");
 		SceneManager.LoadScene ("Scene2");
+		//PlayerPrefs.SetInt ("character", 2);
 	}
 }

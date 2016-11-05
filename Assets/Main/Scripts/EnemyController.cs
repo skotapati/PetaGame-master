@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour {
 
 			if (player.transform.position.z > this.transform.position.z) {
 				//playerBody.transform.rotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
-				//actually need to alter playerPosition
+
 			}
 
 			print ("spawn paintball!");
@@ -70,6 +70,10 @@ public class EnemyController : MonoBehaviour {
 		if (col.gameObject.tag == "Ball") {
 			Destroy (this.gameObject);
 			Destroy (col.gameObject);
+
+			GameController.modifyScore (10); 
+			GameController.increaseDifficulty (20);
+
 		}
 	}
 		

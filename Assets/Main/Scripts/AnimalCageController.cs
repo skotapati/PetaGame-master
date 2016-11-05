@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AnimalCageController : MonoBehaviour {
 
-	public enum AnimalType{Pig, Cow, Chicken};
+	public enum AnimalType{Pig, Cow, Chicken, Turkey};
 	public AnimalType animalInside;
 	private GameObject animalToSpawn;
 	public Vector3 cagePos;
@@ -12,10 +12,12 @@ public class AnimalCageController : MonoBehaviour {
 	public GameObject pigObj;
 	public GameObject cowObj;
 	public GameObject chickenObj;
+	public GameObject turkeyObj;
 
 
 	// Use this for initialization
 	void Start () {
+
 		switch (animalInside) { //modify vectors based on animal spawned
 		case AnimalType.Pig:
 			animalToSpawn = pigObj;
@@ -27,7 +29,11 @@ public class AnimalCageController : MonoBehaviour {
 			break;
 		case AnimalType.Chicken:
 			animalToSpawn = chickenObj;
-			cagePos = new Vector3 (gameObject.transform.position.x-2.0f, gameObject.transform.position.y-0.26f, gameObject.transform.position.z+1.0f); //this is right
+			cagePos = new Vector3 (gameObject.transform.position.x-2.2f, gameObject.transform.position.y-0.18f, gameObject.transform.position.z+1.5f); //this is right
+			break;
+		case AnimalType.Turkey:
+			animalToSpawn = turkeyObj;
+			cagePos = new Vector3 (gameObject.transform.position.x-2.0f, gameObject.transform.position.y-0.26f, gameObject.transform.position.z+1.5f); //this is right
 			break;
 		default:
 			animalToSpawn = pigObj;

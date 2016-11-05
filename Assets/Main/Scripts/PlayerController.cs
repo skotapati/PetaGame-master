@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour {
 		if (temp == playerBody.position) {
 			animator.StopPlayback ();
 		}
-		//checkBlock ();
 
 		testBlock(); //dont need this now
 
@@ -58,28 +57,46 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void testBlock(){
-		Block block = tileRepo.blockAtPosition (gameController.playerPosition.position);
-//		print (block.name);
-//		print (block.walkable);
-		if (block.walkable == false) { 
-
-			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+	void checkScore(int current)
+	{
+		if (current >= PlayerPrefs.GetInt ("bestScore")) {
+			print ("new highscore!"+current);
+			PlayerPrefs.SetInt ("bestScore",current);
 		}
 	}
 
-	//COLLISION - tried OnTriggerStay as well and OnCollisionStay, but score is incremented twice sometimes
+	void testBlock(){
+		Block block = tileRepo.blockAtPosition (gameController.playerPosition.position);
+
+		if (block.walkable == false) { 
+
+			checkScore (GameController.score);
+			//game over
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+			GameController.gameOverClearVars ();
+		}
+	}
+
+	//COLLISION - tried OnTriggerStay as well and OnCollisionStay, but score is incremented twice sometimes for both, need to fix
 	void OnTriggerStay(Collider col){
 		if (col.gameObject.tag == "Enemy") {
-			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+
+			checkScore (GameController.score);
+
+			//game over
+			//SceneManager.LoadScene (SceneManager.GetActiveScene ().name); /this needs to be uncommented for real
+			//GameController.gameOverClearVars ();
 			print ("game over by enemy");
 		}
 		if (col.gameObject.tag == "Animal") {
 			print ("animal saved");
 			Destroy (col.transform.gameObject);
 
-			GameController.score++; //maybe cant be static, so does not reset with this scene reload - must read up on proper score system
+			GameController.modifyScore (1); 
+
+			GameController.increaseDifficulty (10);
 			print ("score="+GameController.score);
+
 		}
 	}
 }
