@@ -119,7 +119,6 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		print ("START DIFFICULTY:"+GameController.difficulty);
 
 		//Take #3
 		InputManager.swipes swipeDirection = InputManager.swipes.none;

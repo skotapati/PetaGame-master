@@ -25,7 +25,7 @@ public class AnimalCageController : MonoBehaviour {
 			break;
 		case AnimalType.Cow:
 			animalToSpawn = cowObj;
-			cagePos = new Vector3 (gameObject.transform.position.x-0.5f, gameObject.transform.position.y-0.25f, gameObject.transform.position.z);
+			cagePos = new Vector3 (gameObject.transform.position.x-1.7f, gameObject.transform.position.y-0.454f, gameObject.transform.position.z);
 			break;
 		case AnimalType.Chicken:
 			animalToSpawn = chickenObj;

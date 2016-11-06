@@ -56,12 +56,13 @@ public class EnemyController : MonoBehaviour {
 			}
 
 			print ("spawn paintball!");
-			Vector3 playerPos = new Vector3 (player.transform.position.x -1.8f, player.transform.position.y+3.7f, player.transform.position.z+2.5f);
+
+			Vector3 playerPos = new Vector3 (player.transform.position.x, player.transform.position.y+1.0f, player.transform.position.z);
 			BallBehavior newBall = Instantiate (paintballPrefab1, playerPos, Quaternion.identity) as BallBehavior;
-	
-			Vector3 ballPos = new Vector3(transform.position.x - 2, transform.position.y + 4, transform.position.z + 2);
+
+			Vector3 ballPos = new Vector3(transform.position.x, transform.position.y+2.0f, transform.position.z);
 			newBall.positionToGo = ballPos;
-			//newBall.transform.position = Vector3.MoveTowards(newBall.transform.position, this.transform.position, speed*Time.deltaTime);
+		
 		}
 		hit = true;
 	}
@@ -69,7 +70,6 @@ public class EnemyController : MonoBehaviour {
 	void OnTriggerStay(Collider col){
 		if (col.gameObject.tag == "Ball") {
 			Destroy (this.gameObject);
-			Destroy (col.gameObject);
 
 			GameController.modifyScore (10); 
 			GameController.increaseDifficulty (20);
