@@ -62,6 +62,9 @@ public class EnemyController : MonoBehaviour {
 
 			Vector3 ballPos = new Vector3(transform.position.x, transform.position.y+2.0f, transform.position.z);
 			newBall.positionToGo = ballPos;
+
+			player.ammo--;
+			print ("ammo"+player.ammo);
 		
 		}
 		hit = true;

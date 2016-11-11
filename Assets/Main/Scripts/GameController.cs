@@ -31,11 +31,10 @@ public class GameController : MonoBehaviour {
 		losing = false;
 		score = 0;
 
-		input = gameObject.GetComponent<InputManager> ();
+		input = gameObject.GetComponent<InputManager> (); //here gets InputManager
 
 		//initial spawn
 		int i = 10; //get position of last sectors, when its exceeded by player then delete and spawn again
-		//print(numSectorsToSpawn+"duh2");
 
 		while (i >= 0) {
 

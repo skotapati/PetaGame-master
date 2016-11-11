@@ -9,17 +9,48 @@ public class PlayerController : MonoBehaviour {
 	public Transform raycastPosition;
 	public Transform playerBody;
 	public float playerHeight;
+	public Transform playerBodyModel;
+
 	PositionRepo tileRepo;
 	Animator animator;
 
+	public Transform[] characterModels;
 	public int ammo = 3; //change later
 	// Use this for initialization
 	void Start () {
 		gameController = gameObject.GetComponent<GameController> ();
 		animator = gameObject.GetComponent<Animator>();
+
+		//change model if needed
+		//PlayerPrefs.SetInt ("player", 0);
+		checkAndChangePlayer();
+
 		tileRepo = GameObject.Find ("GameController").GetComponent<PositionRepo> ();
 		Physics.gravity = new Vector3(0, -50.0F, 0);
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
+	}
+
+	void checkAndChangePlayer()
+	{
+		if(PlayerPrefs.GetInt("player") != 0)
+		{
+			foreach (Transform child in playerBody) {
+				if (child.gameObject.tag == "PlayerBodyMatrix") {
+					playerBodyModel = child.transform;
+
+					Destroy (child.gameObject);
+
+					switch(PlayerPrefs.GetInt("player"))
+					{
+					case 1:
+						playerBodyModel = Instantiate (characterModels [1], new Vector3 (-3.4f, 4.52f, 2.46f), Quaternion.identity) as Transform; //this pos was found manually
+						break;
+					}
+
+					playerBodyModel.transform.parent = playerBody;
+				}
+			}
+		}
 	}
 	
 	// Update is called once per frame
@@ -35,6 +66,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	}
+
 	void checkBlock(){
 		RaycastHit hit;
 		if (Physics.Raycast (raycastPosition.position, -Vector3.up, out hit, 100.0f)) {

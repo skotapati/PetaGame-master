@@ -33,12 +33,14 @@ public class InputManager : MonoBehaviour {
 						detectedObject.GetComponent<EnemyController> ().onTap ();
 						objectDetected = true;
 						return swipes.none;
+
 					}
 					if (hit.collider.gameObject.tag == "Cage") {
 						detectedObject = hit.collider.gameObject;
 						detectedObject.GetComponent<AnimalCageController> ().onTap ();
 						objectDetected = true;
 						return swipes.none;
+	
 					}
 				}
 			}
@@ -51,25 +53,30 @@ public class InputManager : MonoBehaviour {
 					return swipes.up;
 				}if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) {
 					lastswipe = swipes.down;
-					animator.StartPlayback ();
+
 					return swipes.down;
 				}if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) {
 					lastswipe = swipes.up;
 					return swipes.right;
-					animator.StartPlayback ();
+
 				}if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) {
 					lastswipe = swipes.left;
-					animator.StartPlayback ();
+
 					return swipes.left;
 				}
-				//print ("tap");
-				return swipes.tap;
-				animator.StartPlayback ();
+				//only move if havent touched object
+				if (objectDetected == false) {
+					//print ("tap");
+					return swipes.tap;
+
+				}
+
+				objectDetected = false;
 			}
-			animator.StartPlayback ();
+
 			return swipes.none;
 		}
-		animator.StartPlayback ();
+
 		return swipes.none;
 	}
 

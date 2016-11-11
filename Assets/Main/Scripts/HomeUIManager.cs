@@ -13,6 +13,7 @@ public class HomeUIManager : MonoBehaviour {
 	void Start () {
 		levelChooserDisplay.enabled = false;
 		print ("score"+PlayerPrefs.GetInt ("bestScore")); 
+		print ("character"+PlayerPrefs.GetInt("player"));
 	}
 	
 	// Update is called once per frame
