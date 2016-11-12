@@ -23,7 +23,7 @@ public class PositionRepo : MonoBehaviour {
 				return tiles [i].blockInfo;
 			}
 		}
-		return air;
+		return null; //was air
 	}
 }
 

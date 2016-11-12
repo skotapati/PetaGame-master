@@ -8,6 +8,7 @@ public class HomeUIManager : MonoBehaviour {
 	public Image levelChooserDisplay;
 	public Button playBtn;
 	public Button extrasBtn;
+	public Canvas main;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,11 @@ public class HomeUIManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void switchScreens()
+	{
+		main.enabled = !main.enabled;
 	}
 
 	public void goToZone1()

@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{106B8A3E-FDBF-A27F-DF77-A421B662164B}</ProjectGuid>
+    <ProjectGuid>{58C26E9A-7F75-AB33-1C36-7A9C663192F9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,17 +45,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CharacterSelectorPlus\_Example\SampleScripts\AddCoins.cs" />
      <Compile Include="Assets\Main\Scripts\AlternatingSpikes.cs" />
      <Compile Include="Assets\Main\Scripts\AnimalCageController.cs" />
      <Compile Include="Assets\Main\Scripts\AnimalController.cs" />
      <Compile Include="Assets\Main\Scripts\BallBehavior.cs" />
      <Compile Include="Assets\Main\Scripts\Block.cs" />
+     <Compile Include="Assets\Main\Scripts\CharacterProperty.cs" />
      <Compile Include="Assets\Main\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Main\Scripts\GameController.cs" />
      <Compile Include="Assets\Main\Scripts\HomeUIManager.cs" />
      <Compile Include="Assets\Main\Scripts\InputManager.cs" />
+     <Compile Include="Assets\Main\Scripts\ManagerSelector.cs" />
      <Compile Include="Assets\Main\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Main\Scripts\PositionRepo.cs" />
+     <Compile Include="Assets\Main\Scripts\ScrollRectSnap.cs" />
      <Compile Include="Assets\Main\Scripts\Sector.cs" />
      <Compile Include="Assets\Main\Scripts\TestScript.cs" />
      <Compile Include="Assets\Main\Scripts\UIManager.cs" />
@@ -73,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{7BA793B9-CEFF-BC1F-6AB6-0CAC70715646}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{196317AD-DB07-D1C0-6906-78DE1D4D8076}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

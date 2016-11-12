@@ -98,15 +98,26 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void testBlock(){
+		//antiquated check block
 		Block block = tileRepo.blockAtPosition (gameController.playerPosition.position);
 
-		if (block.walkable == false) { 
-
+		if (block == null) { 
+			print ("game over from fall");
 			checkScore (GameController.score);
 			//game over
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 			GameController.gameOverClearVars ();
 		}
+
+//		//now fall
+//		if (playerBodyModel.transform.position.y <= -5) {
+//
+//			print ("game over from fall");
+//			checkScore (GameController.score);
+//			//game over
+//			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+//			GameController.gameOverClearVars ();
+//		}
 	}
 
 	//COLLISION - tried OnTriggerStay as well and OnCollisionStay, but score is incremented twice sometimes for both, need to fix

@@ -17,11 +17,11 @@ public class AnimalCageController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		
 		switch (animalInside) { //modify vectors based on animal spawned
 		case AnimalType.Pig:
 			animalToSpawn = pigObj;
-			cagePos = new Vector3 (gameObject.transform.position.x-0.5f, gameObject.transform.position.y-0.25f, gameObject.transform.position.z);
+			cagePos = new Vector3 (gameObject.transform.position.x+2.2f, gameObject.transform.position.y+2.9f, gameObject.transform.position.z-1.7f);
 			break;
 		case AnimalType.Cow:
 			animalToSpawn = cowObj;
