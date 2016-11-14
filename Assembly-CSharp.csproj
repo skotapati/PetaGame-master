@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{58C26E9A-7F75-AB33-1C36-7A9C663192F9}</ProjectGuid>
+    <ProjectGuid>{78AB83D6-1256-BA0A-3253-41EFBDC9C43E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,7 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CharacterSelectorPlus\_Example\SampleScripts\AddCoins.cs" />
      <Compile Include="Assets\Main\Scripts\AlternatingSpikes.cs" />
      <Compile Include="Assets\Main\Scripts\AnimalCageController.cs" />
      <Compile Include="Assets\Main\Scripts\AnimalController.cs" />
@@ -77,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{196317AD-DB07-D1C0-6906-78DE1D4D8076}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{739A0958-3621-713C-8274-9D540DBE2B57}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

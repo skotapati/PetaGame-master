@@ -8,6 +8,8 @@ public class AnimalCageController : MonoBehaviour {
 	private GameObject animalToSpawn;
 	public Vector3 cagePos;
 
+	public bool wasMoved = false;
+
 	//obj to be spawned
 	public GameObject pigObj;
 	public GameObject cowObj;
@@ -54,7 +56,9 @@ public class AnimalCageController : MonoBehaviour {
 
 		Destroy (this.gameObject);
 		//Vector3 cagePos = new Vector3 (gameObject.transform.position.x-0.5f, gameObject.transform.position.y-0.25f, gameObject.transform.position.z-2.9f);
-		AnimalController animal = Instantiate (animalToSpawn, cagePos, gameObject.transform.localRotation) as AnimalController;
+		if (wasMoved == false) {
+			AnimalController animal = Instantiate (animalToSpawn, cagePos, gameObject.transform.localRotation) as AnimalController;
+		}
 
 //		rb = animal.GetComponent<Rigidbody>();
 //		rb.AddForce(2,4, 0, ForceMode.Impulse);
