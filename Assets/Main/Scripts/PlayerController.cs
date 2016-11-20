@@ -11,8 +11,6 @@ public class PlayerController : MonoBehaviour {
 	public float playerHeight;
 	public Transform playerBodyModel;
 
-	public float forceThrust;
-
 	PositionRepo tileRepo;
 	Animator animator;
 
@@ -142,15 +140,6 @@ public class PlayerController : MonoBehaviour {
 			GameController.increaseDifficulty (10);
 			print ("score="+GameController.score);
 
-		}
-		if (col.gameObject.tag == "Cage") {
-			print ("cage collision");
-			Rigidbody rb = col.gameObject.GetComponent<Rigidbody>();
-			AnimalCageController cageControl = col.gameObject.GetComponent<AnimalCageController>();
-
-
-			rb.AddForce(playerBody.rotation * Vector3.forward * forceThrust);
-			cageControl.wasMoved = true;
 		}
 	}
 }
